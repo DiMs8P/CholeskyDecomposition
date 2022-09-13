@@ -36,6 +36,9 @@
     <ClInclude Include="SolverOfSLAE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Writer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Reader.cpp">
@@ -47,8 +50,11 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Writer.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
     <ClCompile Include="SolverOfSLAE.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Solution</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -64,5 +70,8 @@
     <Text Include="Vector.txt">
       <Filter>Source Files\Source</Filter>
     </Text>
+    <Text Include="Output.txt" />
+    <Text Include="DiagOutput.txt" />
+    <Text Include="MatrixOutput.txt" />
   </ItemGroup>
 </Project>

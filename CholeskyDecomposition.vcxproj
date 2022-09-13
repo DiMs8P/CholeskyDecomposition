@@ -131,19 +131,24 @@
     <ClInclude Include="Decompositor.h" />
     <ClInclude Include="Reader.h" />
     <ClInclude Include="SolverOfSLAE.h" />
+    <ClInclude Include="Writer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Decompositor.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Reader.cpp" />
     <ClCompile Include="SolverOfSLAE.cpp" />
+    <ClCompile Include="Writer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Project4\.clang-format" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Diag.txt" />
+    <Text Include="DiagOutput.txt" />
     <Text Include="Matrix.txt" />
+    <Text Include="MatrixOutput.txt" />
+    <Text Include="Output.txt" />
     <Text Include="Vector.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
