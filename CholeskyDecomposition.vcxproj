@@ -131,6 +131,7 @@
     <ClInclude Include="Decompositor.h" />
     <ClInclude Include="Reader.h" />
     <ClInclude Include="SolverOfSLAE.h" />
+    <ClInclude Include="Utils.h" />
     <ClInclude Include="Writer.h" />
   </ItemGroup>
   <ItemGroup>

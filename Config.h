@@ -1,5 +1,5 @@
 #pragma once
 
-typedef float real;
+typedef double real;
 
-#define PRECISION 8
+#define PRECISION 16
