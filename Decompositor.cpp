@@ -2,78 +2,61 @@
 
 void Decompositor::DecomposeByCholesky(std::vector<std::vector<real>>& Matrix, std::vector<real>& Diag) {
 
-    if (Matrix.empty())
-        return;
+	if (Matrix.empty())
+		return;
+
+	DecomposeTheFirstHalfWidth(Matrix, Diag);
+	FinishDecomposition(Matrix, Diag);
+}
+
+void Decompositor::DecomposeTheFirstHalfWidth(std::vector<std::vector<real>>& Matrix, std::vector<real>& Diag) {
 
 	const int HalfWidth = Matrix[0].size();
-    const int MatrixSize = Diag.size();
-	DecomposeTheFirstHalfWidth(Matrix, Diag, HalfWidth);
-    DecomposeTheLast(Matrix, Diag, MatrixSize);
+	for (int i = 0; i < HalfWidth; i++)
+	{
+		for (int jL = HalfWidth - i; jL < HalfWidth; jL++)
+		{
+			real Sum = 0;
+			const int j = jL - (HalfWidth - i);
+			for (int kj = 0, kjShift = i - j; kj < jL; kj++, kjShift++)
+			{
+				Sum += Matrix[i][kj] * Matrix[j][kjShift];
+			}
+			Matrix[i][jL] = (Matrix[i][jL] - Sum) / Diag[j];
+		}
 
+		real Sum = 0;
+		for (int jL = 0; jL < HalfWidth; jL++)
+		{
+			Sum += Matrix[i][jL] * Matrix[i][jL];
+		}
+		Diag[i] = sqrt(Diag[i] - Sum);
+	}
 }
 
-void Decompositor::DecomposeTheFirstHalfWidth(std::vector<std::vector<real>>& Matrix, std::vector<real>& Diag, const int HalfWidth) {
+void Decompositor::FinishDecomposition(std::vector<std::vector<real>>& Matrix, std::vector<real>& Diag) {
 
-    real Accumulator = 0;
+	const int HalfWidth = Matrix[0].size();
+	const int MatrixSize = Diag.size();
 
-    Diag[0] = sqrt(Diag[0]);
+	for (int i = HalfWidth; i < MatrixSize; i++)
+	{
+		for (int jL = 0; jL < HalfWidth; jL++)
+		{
+			real Sum = 0;
+			const int j = jL - (HalfWidth - i);
+			for (int kj = 0, kjShift = i - j; kj < jL; kj++, kjShift++)
+			{
+				Sum += Matrix[i][kj] * Matrix[j][kjShift];
+			}
+			Matrix[i][jL] = (Matrix[i][jL] - Sum) / Diag[j];
+		}
 
-    for (int i = 1; i <= HalfWidth; ++i)
-    {
-        // вычислили самый левый
-        Matrix[i][HalfWidth - i] /= Diag[0];
-
-        for (int j = HalfWidth - i + 1; j < HalfWidth; ++j)
-        {
-
-            for (int k = 0; k < j - (HalfWidth - i); k++)
-            {
-                Accumulator += Matrix[i][HalfWidth - i + k] * Matrix[j - (HalfWidth - i)][(2 * HalfWidth) - j + k - i];
-            }
-
-            Matrix[i][j] -= Accumulator;
-            Matrix[i][j] /= Diag[j - (HalfWidth - i)];
-            Accumulator = 0;
-        }
-
-        for (int j = HalfWidth - i; j < HalfWidth; ++j)
-        {
-            Accumulator += Matrix[i][j] * Matrix[i][j];
-        }
-        Diag[i] = sqrt(Diag[i] - Accumulator);
-        Accumulator = 0;
-    }
-}
-
-void Decompositor::DecomposeTheLast(std::vector<std::vector<real>>& Matrix, std::vector<real>& Diag, const int MatrixSize) {
-    real Accumulator = 0;
-    int HalfWidth = Matrix[0].size();
-
-    for (int i = HalfWidth + 1; i < MatrixSize; ++i)
-    {
-        // вычислили самый левый
-        Matrix[i][0] /= Diag[i - HalfWidth];
-
-        for (int j = 1; j < HalfWidth; ++j)
-        {
-
-            for (int k = 0; k < j; k++)
-            {
-                Accumulator += Matrix[i][k] * Matrix[j - (HalfWidth - i)][HalfWidth - j + k];
-            }
-
-            Matrix[i][j] -= Accumulator; 
-            Matrix[i][j] /= Diag[j - (HalfWidth - i)];
-            Accumulator = 0;
-        }
-
-        for (int j = 0; j < HalfWidth; ++j)
-        {
-            Accumulator += Matrix[i][j] * Matrix[i][j];
-        }
-        Diag[i] = sqrt(Diag[i] - Accumulator);
-        Accumulator = 0;
-    }
-
-    Accumulator = 0;
+		real Sum = 0;
+		for (int jL = 0; jL < HalfWidth; jL++)
+		{
+			Sum += Matrix[i][jL] * Matrix[i][jL];
+		}
+		Diag[i] = sqrt(Diag[i] - Sum);
+	}
 }

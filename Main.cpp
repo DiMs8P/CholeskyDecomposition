@@ -4,8 +4,6 @@
 #include "Writer.h"
 #include "Config.h"
 #include "SolverOfSLAE.h"
-#include "Utils.h"
-#include <iostream>
 
 int main() {
 	Decompositor Solution;
@@ -19,6 +17,7 @@ int main() {
 	Reader::VectorReader(Vector, "Vector.txt");
 	Reader::VectorReader(Diag, "Diag.txt");
 
+
 	Solution.DecomposeByCholesky(Matrix, Diag);
 	const std::vector<real> Vec1 = Solver.SolveWithLowerTriangle(Matrix, Diag, Vector);
 	std::vector<real> Vec2 = Solver.SolveWithHigherTriangle(Matrix, Diag, Vec1);
@@ -27,8 +26,8 @@ int main() {
 	Writer::WriteVectorToFile(Diag, "DiagOutput.txt");
 	Writer::WriteVectorToFile(Vec2, "Output.txt");
 
-	std::cout << Utils::CalcScalarProduct(Vec2, Vec2) << '\n';
-	std::cout << std::fixed << Utils::CalcScalarProduct(Vector, Vector);
+	//std::cout << Utils::CalcScalarProduct(Vec2, Vec2) << '\n';
+	//std::cout << std::fixed << Utils::CalcScalarProduct(Vector, Vector);
 
 	return 0;
 }

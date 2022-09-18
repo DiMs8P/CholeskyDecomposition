@@ -9,7 +9,7 @@ public:
 	void DecomposeByCholesky(std::vector<std::vector<real>>& Matrix, std::vector<real>& Vector);
 
 private:
-	void DecomposeTheFirstHalfWidth(std::vector<std::vector<real>>& Matrix, std::vector<real>& Vector, const int HalfWidth);
-	void DecomposeTheLast(std::vector<std::vector<real>>& Matrix, std::vector<real>& Vector, const int MatrixSize);
+	static void DecomposeTheFirstHalfWidth(std::vector<std::vector<real>>& Matrix, std::vector<real>& Vector);
+	static void FinishDecomposition(std::vector<std::vector<real>>& Matrix, std::vector<real>& Vector);
 };
 
