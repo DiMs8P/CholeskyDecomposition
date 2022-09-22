@@ -1,9 +1,8 @@
 #pragma once
 
 #include "Config.h"
-
-//class string;
-//class vector;
+#include <vector>
+#include <string>
 
 class FileWriter
 {

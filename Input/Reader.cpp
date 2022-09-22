@@ -1,8 +1,5 @@
-#include <vector>
-#include <string>
 #include <fstream>
 #include "Reader.h"
-
 
 void FileReader::ReadMatrix(std::vector<std::vector<real>>& Matrix, const std::string& Path) {
 	std::ifstream triangleStream(Path);

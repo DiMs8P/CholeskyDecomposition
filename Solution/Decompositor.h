@@ -1,8 +1,7 @@
 #pragma once
 
 #include "Config.h"
-
-class vector;
+#include <vector>
 
 class Decompositor
 {

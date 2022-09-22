@@ -1,9 +1,9 @@
-#include "Reader.h"
-#include "Decompositor.h"
+#include "Input/Reader.h"
+#include "Solution/Decompositor.h"
 #include <vector>
-#include "Writer.h"
+#include "Input/Writer.h"
 #include "Config.h"
-#include "SolverOfSLAE.h"
+#include "Solution/SolverOfSLAE.h"
 #include "HilbertMatrix.h"
 
 int main() {

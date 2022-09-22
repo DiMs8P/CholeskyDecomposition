@@ -1,4 +1,3 @@
-#include <vector>
 #include "SolverOfSLAE.h"
 
 std::vector<real> SolverOfSLAE::SolveWithLowerTriangle(

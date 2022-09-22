@@ -1,4 +1,3 @@
-#include <vector>
 #include "Decompositor.h"
 
 void Decompositor::DecomposeByCholesky(std::vector<std::vector<real>>& Matrix, std::vector<real>& Diag) {
