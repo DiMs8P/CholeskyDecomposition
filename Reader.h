@@ -1,13 +1,13 @@
 #pragma once
 
-#include <vector>
-#include <string>
-#include <fstream>
 #include "Config.h"
 
-static class Reader
+class string;
+class vector;
+
+class FileReader
 {
 public:
-	static void MatrixReader(std::vector<std::vector<real>>& Matrix, const std::string& Path);
-	static void VectorReader(std::vector<real>& Vector, const std::string& Path);
+	void ReadMatrix(std::vector<std::vector<real>>& Matrix, const std::string& Path);
+	void ReadVector(std::vector<real>& Vector, const std::string& Path);
 };

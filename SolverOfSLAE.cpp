@@ -1,3 +1,4 @@
+#include <vector>
 #include "SolverOfSLAE.h"
 
 std::vector<real> SolverOfSLAE::SolveWithLowerTriangle(
@@ -13,7 +14,7 @@ std::vector<real> SolverOfSLAE::SolveWithLowerTriangle(
 
 	for (int i = 0; i < HalfSize; i++) {
 
-		real Sum = 0;
+		accVarType Sum = 0;
 
 		for (int j = 0; j < i; j++) {
 			Sum += Matrix[i][HalfSize - i + j] * Output[j];
@@ -23,7 +24,7 @@ std::vector<real> SolverOfSLAE::SolveWithLowerTriangle(
 
 	for (int i = HalfSize; i < Matrix.size(); i++) {
 
-		real Sum = 0;
+		accVarType Sum = 0;
 		for (int j = 0; j < HalfSize; j++) {
 			Sum += Matrix[i][j] * Output[j + i - HalfSize];
 		}
@@ -46,7 +47,7 @@ std::vector<real> SolverOfSLAE::SolveWithHigherTriangle(const std::vector<std::v
 
 	for (int i = MatrixSize; i >= MatrixSize - HalfSize; i--) {
 
-		real Sum = 0;
+		accVarType Sum = 0;
 		for (int k = 0; k < MatrixSize - i; k++) {
 			Sum += Matrix[i + k][HalfSize - k - 1] * Output[i + k];
 		}
@@ -55,7 +56,7 @@ std::vector<real> SolverOfSLAE::SolveWithHigherTriangle(const std::vector<std::v
 
 	for (int i = MatrixSize - HalfSize; i > 0; i--) {
 
-		real Sum = 0;
+		accVarType Sum = 0;
 		for (int k = 0; k < HalfSize; k++) {
 			Sum += Matrix[i + k][HalfSize - 1 - k] * Output[i + k];
 		}

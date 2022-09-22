@@ -1,7 +1,8 @@
 #pragma once
 
-#include <vector>
 #include "Config.h"
+
+class vector;
 
 class SolverOfSLAE
 {

@@ -1,3 +1,4 @@
+#include <vector>
 #include "Decompositor.h"
 
 void Decompositor::DecomposeByCholesky(std::vector<std::vector<real>>& Matrix, std::vector<real>& Diag) {
@@ -16,7 +17,7 @@ void Decompositor::DecomposeTheFirstHalfWidth(std::vector<std::vector<real>>& Ma
 	{
 		for (int jL = HalfWidth - i; jL < HalfWidth; jL++)
 		{
-			real Sum = 0;
+			accVarType Sum = 0;
 			const int j = jL - (HalfWidth - i);
 			for (int kj = 0, kjShift = i - j; kj < jL; kj++, kjShift++)
 			{
@@ -25,7 +26,7 @@ void Decompositor::DecomposeTheFirstHalfWidth(std::vector<std::vector<real>>& Ma
 			Matrix[i][jL] = (Matrix[i][jL] - Sum) / Diag[j];
 		}
 
-		real Sum = 0;
+		accVarType Sum = 0;
 		for (int jL = 0; jL < HalfWidth; jL++)
 		{
 			Sum += Matrix[i][jL] * Matrix[i][jL];
@@ -43,7 +44,7 @@ void Decompositor::FinishDecomposition(std::vector<std::vector<real>>& Matrix, s
 	{
 		for (int jL = 0; jL < HalfWidth; jL++)
 		{
-			real Sum = 0;
+			accVarType Sum = 0;
 			const int j = jL - (HalfWidth - i);
 			for (int kj = 0, kjShift = i - j; kj < jL; kj++, kjShift++)
 			{
@@ -52,7 +53,7 @@ void Decompositor::FinishDecomposition(std::vector<std::vector<real>>& Matrix, s
 			Matrix[i][jL] = (Matrix[i][jL] - Sum) / Diag[j];
 		}
 
-		real Sum = 0;
+		accVarType Sum = 0;
 		for (int jL = 0; jL < HalfWidth; jL++)
 		{
 			Sum += Matrix[i][jL] * Matrix[i][jL];

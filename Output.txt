@@ -1,3 +1,11 @@
--0.0028002043944814
-0.0853346959632090
-0.0548799182422075
+10
+-nan(ind)
+-nan(ind)
+-nan(ind)
+-nan(ind)
+-nan(ind)
+-nan(ind)
+-nan(ind)
+-nan(ind)
+-nan(ind)
+-nan(ind)

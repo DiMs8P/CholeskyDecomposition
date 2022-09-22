@@ -1,15 +1,14 @@
 #pragma once
 
-#include <vector>
-#include <string>
 #include "Config.h"
-#include <fstream>
-#include <iomanip>
 
-static class Writer
+//class string;
+//class vector;
+
+class FileWriter
 {
 public:
-	static void WriteVectorToFile(std::vector<real>& Vector, const std::string& Path);
-	static void WriteMatrixToFile(const std::vector<std::vector<real>>& Matrix, const std::string& Path);
+	void WriteVector(std::vector<real>& Vector, const std::string& Path);
+	void WriteMatrix(const std::vector<std::vector<real>>& Matrix, const std::string& Path);
 };
 

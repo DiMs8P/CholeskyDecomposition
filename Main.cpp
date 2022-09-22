@@ -4,6 +4,7 @@
 #include "Writer.h"
 #include "Config.h"
 #include "SolverOfSLAE.h"
+#include "HilbertMatrix.h"
 
 int main() {
 	Decompositor Solution;
@@ -13,21 +14,26 @@ int main() {
 	std::vector<real> Vector;
 	std::vector<real> Diag;
 
-	Reader::MatrixReader(Matrix, "Matrix.txt");
-	Reader::VectorReader(Vector, "Vector.txt");
-	Reader::VectorReader(Diag, "Diag.txt");
+	HilbertMatrix HMatrix;
+	std::vector<std::vector<real>> HilbertMatrix = HMatrix.GenerateALMatrix(HilbertSize);
+	std::vector<real> HilbertVector = HMatrix.GenerateDiag(HilbertSize);
 
+	FileWriter FileWriter;
+	FileWriter.WriteMatrix(HilbertMatrix, "HilbertMatrixOutput.txt");
+	FileWriter.WriteVector(HilbertVector, "HilbertDiagOutput.txt");
+
+	FileReader FilerReader;
+	FilerReader.ReadMatrix(Matrix, "Matrix.txt");
+	FilerReader.ReadVector(Vector, "Vector.txt");
+	FilerReader.ReadVector(Diag, "Diag.txt");
 
 	Solution.DecomposeByCholesky(Matrix, Diag);
 	const std::vector<real> Vec1 = Solver.SolveWithLowerTriangle(Matrix, Diag, Vector);
 	std::vector<real> Vec2 = Solver.SolveWithHigherTriangle(Matrix, Diag, Vec1);
 
-	Writer::WriteMatrixToFile(Matrix, "MatrixOutput.txt");
-	Writer::WriteVectorToFile(Diag, "DiagOutput.txt");
-	Writer::WriteVectorToFile(Vec2, "Output.txt");
-
-	//std::cout << Utils::CalcScalarProduct(Vec2, Vec2) << '\n';
-	//std::cout << std::fixed << Utils::CalcScalarProduct(Vector, Vector);
+	FileWriter.WriteMatrix(Matrix, "MatrixOutput.txt");
+	FileWriter.WriteVector(Diag, "DiagOutput.txt");
+	FileWriter.WriteVector(Vec2, "Output.txt");
 
 	return 0;
 }
