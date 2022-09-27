@@ -13,53 +13,59 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Input">
-      <UniqueIdentifier>{bcb9c4fc-4f2a-4586-8569-9c1eee5c6790}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Solution">
-      <UniqueIdentifier>{535c3060-53a3-4e6f-b256-e810b588d640}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Source">
       <UniqueIdentifier>{f23e5da3-77b9-412c-b7c2-25b497260915}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Source\Input">
+      <UniqueIdentifier>{c59dc500-4050-4ef7-806d-09103d3a72d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Source\Solution">
+      <UniqueIdentifier>{c5eebc01-4d82-47df-a7cb-afa97ade4490}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Reader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Decompositor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Config.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SolverOfSLAE.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Writer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="HilbertMatrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Input\Writer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\Reader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Solution\Decompositor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Solution\SolverOfSLAE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Reader.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Decompositor.cpp">
-      <Filter>Source Files\Solution</Filter>
-    </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Writer.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="SolverOfSLAE.cpp">
-      <Filter>Source Files\Solution</Filter>
-    </ClCompile>
     <ClCompile Include="HilbertMatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\Reader.cpp">
+      <Filter>Source Files\Source\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\Writer.cpp">
+      <Filter>Source Files\Source\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Solution\SolverOfSLAE.cpp">
+      <Filter>Source Files\Source\Solution</Filter>
+    </ClCompile>
+    <ClCompile Include="Solution\Decompositor.cpp">
+      <Filter>Source Files\Source\Solution</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>Input; Solution</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,19 +129,21 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
-    <ClInclude Include="Decompositor.h" />
     <ClInclude Include="HilbertMatrix.h" />
-    <ClInclude Include="Reader.h" />
-    <ClInclude Include="SolverOfSLAE.h" />
-    <ClInclude Include="Writer.h" />
+    <ClInclude Include="Input\Reader.h" />
+    <ClInclude Include="Input\Writer.h" />
+    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="Solution\Decompositor.h" />
+    <ClInclude Include="Solution\SolverOfSLAE.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Decompositor.cpp" />
     <ClCompile Include="HilbertMatrix.cpp" />
+    <ClCompile Include="Input\Reader.cpp" />
+    <ClCompile Include="Input\Writer.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Reader.cpp" />
-    <ClCompile Include="SolverOfSLAE.cpp" />
-    <ClCompile Include="Writer.cpp" />
+    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="Solution\Decompositor.cpp" />
+    <ClCompile Include="Solution\SolverOfSLAE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Project4\.clang-format" />

@@ -11,7 +11,7 @@ std::vector<std::vector<real>> HilbertMatrix::GenerateALMatrix(const int Size)
 	{
 		for (int j = Size - i; j < Size; j++)
 		{
-			Matrix[i][j] = 1.0 / (2 * i + j - (Size - 2));
+			Matrix[i][j] = 1.0f / (2 * i + j - (Size - 1));
 		}
 	}
 	return Matrix;
@@ -26,7 +26,7 @@ std::vector<real> HilbertMatrix::GenerateDiag(const int Size)
 
 	for (int i = 0; i < Size; i++)
 	{
-		Diag[i] = 1 / (2 * i + 1);
+		Diag[i] = 1.0f / (2 * i + 1);
 	}
 	return Diag;
 }

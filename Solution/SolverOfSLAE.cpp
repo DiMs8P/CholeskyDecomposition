@@ -44,7 +44,7 @@ std::vector<real> SolverOfSLAE::SolveWithHigherTriangle(const std::vector<std::v
 	const int HalfSize = Matrix[0].size();
 	const int MatrixSize = Matrix.size();
 
-	for (int i = MatrixSize; i >= MatrixSize - HalfSize; i--) {
+	for (int i = MatrixSize; i >= MatrixSize - HalfSize && i > 0; i--) {
 
 		accVarType Sum = 0;
 		for (int k = 0; k < MatrixSize - i; k++) {

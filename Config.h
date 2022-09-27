@@ -1,9 +1,9 @@
 #pragma once
 
-typedef float real;
+typedef double real;
 
-typedef double accVarType;
+typedef real accVarType;
 
-#define PRECISION 8
+#define PRECISION 16
 
-#define HilbertSize 1
+#define HilbertSize 10
