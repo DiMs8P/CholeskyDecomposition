@@ -7,19 +7,19 @@ class SolverOfSLAE
 {
 public:
 
-	std::vector<real> SolveWithLALowerTriangle(const std::vector<std::vector<real>>& Matrix,
-		const std::vector<real>& Diag,
-		const std::vector<real>& Vector);
+	vector<real> SolveWithLALowerTriangle(const vector<vector<real>>& Matrix,
+		const vector<real>& Diag,
+		const vector<real>& Vector);
 
-	std::vector<real> SolveWithLAHigherTriangle(const std::vector<std::vector<real>>& Matrix,
-		const std::vector<real>& Diag,
-		const std::vector<real>& Vector);
+	vector<real> SolveWithLAHigherTriangle(const vector<vector<real>>& Matrix,
+		const vector<real>& Diag,
+		const vector<real>& Vector);
 
-	std::vector<real> SolveByGaussMethod(std::vector<std::vector<real>>& Matrix, const std::vector<real>& Vector);
+	vector<real> SolveByGaussMethod(vector<vector<real>>& Matrix, const vector<real>& Vector);
 
 //private:
-	std::vector<real> SolveWithUpperTriangle(std::vector<std::vector<real>>& Matrix, const std::vector<real>& Vector);
-	void ToUpperTriangle(std::vector<std::vector<real>>& Matrix);
-	void AddRowWithCoefficient(std::vector<real>& target, std::vector<real>& additional, const real coefficient);
+	vector<real> SolveWithUpperTriangle(vector<vector<real>>& Matrix, const vector<real>& Vector);
+	void ToUpperTriangle(vector<vector<real>>& Matrix);
+	void AddRowWithCoefficient(vector<real>& target, vector<real>& additional, const real coefficient);
 };
 

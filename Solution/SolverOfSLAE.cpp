@@ -1,14 +1,14 @@
 #include "SolverOfSLAE.h"
 
-std::vector<real> SolverOfSLAE::SolveWithLALowerTriangle(
-	const std::vector<std::vector<real>>& Matrix,
-	const std::vector<real>& Diag,
-	const std::vector<real>& Vector)
+vector<real> SolverOfSLAE::SolveWithLALowerTriangle(
+	const vector<vector<real>>& Matrix,
+	const vector<real>& Diag,
+	const vector<real>& Vector)
 {
 	if (Matrix.empty())
 		return {};
 
-	std::vector<real> Output(Vector.size());
+	vector<real> Output(Vector.size());
 	const int HalfSize = Matrix[0].size();
 
 	for (int i = 0; i < HalfSize; i++) {
@@ -33,14 +33,14 @@ std::vector<real> SolverOfSLAE::SolveWithLALowerTriangle(
 	return Output;
 }
 
-std::vector<real> SolverOfSLAE::SolveWithLAHigherTriangle(const std::vector<std::vector<real>>& Matrix,
-	const std::vector<real>& Diag,
-	const std::vector<real>& Vector)
+vector<real> SolverOfSLAE::SolveWithLAHigherTriangle(const vector<vector<real>>& Matrix,
+	const vector<real>& Diag,
+	const vector<real>& Vector)
 {
 	if (Matrix.empty())
 		return {};
 
-	std::vector<real> Output(Vector.size());
+	vector<real> Output(Vector.size());
 	const int HalfSize = Matrix[0].size();
 	const int MatrixSize = Matrix.size();
 
@@ -66,7 +66,7 @@ std::vector<real> SolverOfSLAE::SolveWithLAHigherTriangle(const std::vector<std:
 }
 
 
-std::vector<real> SolverOfSLAE::SolveByGaussMethod(std::vector<std::vector<real>>& Matrix, const std::vector<real>& Vector)
+vector<real> SolverOfSLAE::SolveByGaussMethod(vector<vector<real>>& Matrix, const vector<real>& Vector)
 {
 	if (Matrix.size() != Vector.size() || Vector.empty())
 		return{};
@@ -75,7 +75,7 @@ std::vector<real> SolverOfSLAE::SolveByGaussMethod(std::vector<std::vector<real>
 	return SolveWithUpperTriangle(Matrix, Vector);
 }
 
-void SolverOfSLAE::ToUpperTriangle(std::vector<std::vector<real>>& Matrix)
+void SolverOfSLAE::ToUpperTriangle(vector<vector<real>>& Matrix)
 {
 	for (int i = 0; i < Matrix.size(); i++)
 	{
@@ -89,7 +89,7 @@ void SolverOfSLAE::ToUpperTriangle(std::vector<std::vector<real>>& Matrix)
 	}
 }
 
-void SolverOfSLAE::AddRowWithCoefficient(std::vector<real>& target, std::vector<real>& additional, const real coefficient)
+void SolverOfSLAE::AddRowWithCoefficient(vector<real>& target, vector<real>& additional, const real coefficient)
 {
 	for (int j = 0; j < target.size(); j++)
 	{
@@ -97,9 +97,9 @@ void SolverOfSLAE::AddRowWithCoefficient(std::vector<real>& target, std::vector<
 	}
 }
 
-std::vector<real> SolverOfSLAE::SolveWithUpperTriangle(std::vector<std::vector<real>>& Matrix, const std::vector<real>& Vector)
+vector<real> SolverOfSLAE::SolveWithUpperTriangle(vector<vector<real>>& Matrix, const vector<real>& Vector)
 {
-	std::vector<real> Output(Vector.size());
+	vector<real> Output(Vector.size());
 
 	for (int i = Matrix.size() - 1; i >= 0; i--)
 	{

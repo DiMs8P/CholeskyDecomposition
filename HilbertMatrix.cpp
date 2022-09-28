@@ -1,11 +1,11 @@
 #include "HilbertMatrix.h"
 
-std::vector<std::vector<real>> HilbertMatrix::GenerateALMatrix(const int Size)
+vector<vector<real>> HilbertMatrix::GenerateALMatrix(const int Size)
 {
 	if (Size <= 0)
 		throw "Attempt to generate invalid matrix";
 
-	std::vector<std::vector<real>> Matrix(Size, std::vector<real>(Size));
+	vector<vector<real>> Matrix(Size, vector<real>(Size));
 
 	for (int i = 1; i < Size; i++)
 	{
@@ -17,12 +17,12 @@ std::vector<std::vector<real>> HilbertMatrix::GenerateALMatrix(const int Size)
 	return Matrix;
 }
 
-std::vector<real> HilbertMatrix::GenerateDiag(const int Size)
+vector<real> HilbertMatrix::GenerateDiag(const int Size)
 {
 	if (Size <= 0)
 		throw "Attempt to generate invalid vector";
 
-	std::vector<real> Diag(Size);
+	vector<real> Diag(Size);
 
 	for (int i = 0; i < Size; i++)
 	{

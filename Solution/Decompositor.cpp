@@ -1,6 +1,6 @@
 #include "Decompositor.h"
 
-void Decompositor::DecomposeByCholesky(std::vector<std::vector<real>>& Matrix, std::vector<real>& Diag) {
+void Decompositor::DecomposeByCholesky(vector<vector<real>>& Matrix, vector<real>& Diag) {
 
 	if (Matrix.empty())
 		return;
@@ -9,7 +9,7 @@ void Decompositor::DecomposeByCholesky(std::vector<std::vector<real>>& Matrix, s
 	FinishDecomposition(Matrix, Diag);
 }
 
-void Decompositor::DecomposeTheFirstHalfWidth(std::vector<std::vector<real>>& Matrix, std::vector<real>& Diag) {
+void Decompositor::DecomposeTheFirstHalfWidth(vector<vector<real>>& Matrix, vector<real>& Diag) {
 
 	const int HalfWidth = Matrix[0].size();
 	for (int i = 0; i < HalfWidth; i++)
@@ -34,7 +34,7 @@ void Decompositor::DecomposeTheFirstHalfWidth(std::vector<std::vector<real>>& Ma
 	}
 }
 
-void Decompositor::FinishDecomposition(std::vector<std::vector<real>>& Matrix, std::vector<real>& Diag) {
+void Decompositor::FinishDecomposition(vector<vector<real>>& Matrix, vector<real>& Diag) {
 
 	const int HalfWidth = Matrix[0].size();
 	const int MatrixSize = Diag.size();

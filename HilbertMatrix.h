@@ -6,12 +6,12 @@
 class HilbertMatrix
 {
 public:
-	std::vector<std::vector<real>> GenerateALMatrix(const int Size);
-	std::vector<real> GenerateDiag(const int Size);
+	vector<vector<real>> GenerateALMatrix(const int Size);
+	vector<real> GenerateDiag(const int Size);
 
-	std::vector<real> GetHilbertMatrixXVectorProduct(const int HilbertMatrixSize)
+	vector<real> GetHilbertMatrixXVectorProduct(const int HilbertMatrixSize)
 	{
-		std::vector<real> Output(HilbertMatrixSize);
+		vector<real> Output(HilbertMatrixSize);
 		for (int i = 0; i < HilbertMatrixSize; i++)
 		{
 			accVarType Sum = 0;

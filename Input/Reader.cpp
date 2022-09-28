@@ -1,8 +1,8 @@
 #include <fstream>
 #include "Reader.h"
 
-void FileReader::ReadMatrix(std::vector<std::vector<real>>& Matrix, const std::string& Path) {
-	std::ifstream triangleStream(Path);
+void FileReader::ReadMatrix(vector<vector<real>>& Matrix, const string& Path) {
+	ifstream triangleStream(Path);
 	if (!triangleStream.is_open())
 	{
 		throw "File is empty!";
@@ -25,8 +25,8 @@ void FileReader::ReadMatrix(std::vector<std::vector<real>>& Matrix, const std::s
 	triangleStream.close();
 }
 
-void FileReader::ReadVector(std::vector<real>& Vector, const std::string& Path) {
-	std::ifstream vectorStream(Path);
+void FileReader::ReadVector(vector<real>& Vector, const string& Path) {
+	ifstream vectorStream(Path);
 	if (!vectorStream.is_open())
 	{
 		throw "File is empty!";

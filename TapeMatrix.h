@@ -7,19 +7,19 @@ class TapeMatrix
 {
 public:
 	TapeMatrix() = default;
-	TapeMatrix(const std::string InputMatrix, const std::string InputDiag);
-	void ReadLAMatrix(const std::string& Path);
-	void ReadLADiagonal(const std::string& Path);
+	TapeMatrix(const string InputMatrix, const string InputDiag);
+	void ReadLAMatrix(const string& Path);
+	void ReadLADiagonal(const string& Path);
 
-	std::vector<std::vector<real>> GetMatrix() const {
+	vector<vector<real>> GetMatrix() const {
 		return Matrix;
 	}
-	std::vector<real> GetDiagonal() const {
+	vector<real> GetDiagonal() const {
 		return Diag;
 	}
 
 private:
-	std::vector<std::vector<real>> Matrix;
-	std::vector<real> Diag;
+	vector<vector<real>> Matrix;
+	vector<real> Diag;
 };
 
