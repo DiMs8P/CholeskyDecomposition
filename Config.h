@@ -6,4 +6,4 @@ typedef real accVarType;
 
 #define PRECISION 16
 
-#define HilbertSize 10
+#define HilbertSize 9

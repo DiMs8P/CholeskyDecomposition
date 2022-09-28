@@ -132,7 +132,7 @@
     <ClInclude Include="HilbertMatrix.h" />
     <ClInclude Include="Input\Reader.h" />
     <ClInclude Include="Input\Writer.h" />
-    <ClInclude Include="Matrix.h" />
+    <ClInclude Include="TapeMatrix.h" />
     <ClInclude Include="Solution\Decompositor.h" />
     <ClInclude Include="Solution\SolverOfSLAE.h" />
   </ItemGroup>
@@ -141,7 +141,7 @@
     <ClCompile Include="Input\Reader.cpp" />
     <ClCompile Include="Input\Writer.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Matrix.cpp" />
+    <ClCompile Include="TapeMatrix.cpp" />
     <ClCompile Include="Solution\Decompositor.cpp" />
     <ClCompile Include="Solution\SolverOfSLAE.cpp" />
   </ItemGroup>

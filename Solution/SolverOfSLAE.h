@@ -7,12 +7,15 @@ class SolverOfSLAE
 {
 public:
 
-	std::vector<real> SolveWithLowerTriangle(const std::vector<std::vector<real>>& Matrix,
+	std::vector<real> SolveWithLALowerTriangle(const std::vector<std::vector<real>>& Matrix,
 		const std::vector<real>& Diag,
 		const std::vector<real>& Vector);
 
-	std::vector<real> SolveWithHigherTriangle(const std::vector<std::vector<real>>& Matrix,
+	std::vector<real> SolveWithLAHigherTriangle(const std::vector<std::vector<real>>& Matrix,
 		const std::vector<real>& Diag,
 		const std::vector<real>& Vector);
+
+	std::vector<real> SolveByGaussMethod(const std::vector<std::vector<real>>& Matrix, const std::vector<real>& Vector);
+
 };
 

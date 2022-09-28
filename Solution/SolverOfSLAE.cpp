@@ -1,6 +1,6 @@
 #include "SolverOfSLAE.h"
 
-std::vector<real> SolverOfSLAE::SolveWithLowerTriangle(
+std::vector<real> SolverOfSLAE::SolveWithLALowerTriangle(
 	const std::vector<std::vector<real>>& Matrix,
 	const std::vector<real>& Diag,
 	const std::vector<real>& Vector)
@@ -33,7 +33,7 @@ std::vector<real> SolverOfSLAE::SolveWithLowerTriangle(
 	return Output;
 }
 
-std::vector<real> SolverOfSLAE::SolveWithHigherTriangle(const std::vector<std::vector<real>>& Matrix,
+std::vector<real> SolverOfSLAE::SolveWithLAHigherTriangle(const std::vector<std::vector<real>>& Matrix,
 	const std::vector<real>& Diag,
 	const std::vector<real>& Vector)
 {
@@ -64,3 +64,24 @@ std::vector<real> SolverOfSLAE::SolveWithHigherTriangle(const std::vector<std::v
 
 	return Output;
 }
+
+//std::vector<real> SolveByGaussMethod(const std::vector<std::vector<real>>& Matrix, const std::vector<real>& Vector)
+//{
+//	if (Matrix.size() != Vector.size() || Vector.empty())
+//		return{};
+//
+//	std::vector<real> Output(Vector.size());
+//
+//	for (int i = 0; i < Matrix.size(); i++)
+//	{
+//
+//		for (int j = i; j < Matrix.size(); j++)
+//		{
+//
+//			for (int k = 0; k < Matrix.size(); k++)
+//			{
+//
+//			}
+//		}
+//	}
+//}
