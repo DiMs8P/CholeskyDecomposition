@@ -1,18 +1,18 @@
 #include "Reader.h"
 #include "TapeMatrix.h"
 
-TapeMatrix::TapeMatrix(const string InputMatrix, const string InputDiag)
+TapeMatrix::TapeMatrix(const string inputMatrix, const string inputDiag)
 {
-	FileReader ReadStream;
+	FileReader reader;
 
-	ReadStream.ReadMatrix(Matrix, InputMatrix);
-	ReadStream.ReadVector(Diag, InputDiag);
+	reader.ReadMatrix(_matrix, inputMatrix);
+	reader.ReadVector(_diag, inputDiag);
 }
-void TapeMatrix::ReadLAMatrix(const string& Path) {
+void TapeMatrix::ReadLAMatrix(const string& path) {
 	FileReader reader;
-	reader.ReadMatrix(Matrix, Path);
+	reader.ReadMatrix(_matrix, path);
 }
-void TapeMatrix::ReadLADiagonal(const string& Path) {
+void TapeMatrix::ReadLADiagonal(const string& path) {
 	FileReader reader;
-	reader.ReadVector(Diag, Path);
+	reader.ReadVector(_diag, path);
 }

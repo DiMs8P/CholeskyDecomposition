@@ -7,19 +7,19 @@ class TapeMatrix
 {
 public:
 	TapeMatrix() = default;
-	TapeMatrix(const string InputMatrix, const string InputDiag);
-	void ReadLAMatrix(const string& Path);
-	void ReadLADiagonal(const string& Path);
+	TapeMatrix(const string inputMatrix, const string inputDiag);
+	void ReadLAMatrix(const string& path);
+	void ReadLADiagonal(const string& path);
 
 	vector<vector<real>> GetMatrix() const {
-		return Matrix;
+		return _matrix;
 	}
 	vector<real> GetDiagonal() const {
-		return Diag;
+		return _diag;
 	}
 
 private:
-	vector<vector<real>> Matrix;
-	vector<real> Diag;
+	vector<vector<real>> _matrix;
+	vector<real> _diag;
 };
 

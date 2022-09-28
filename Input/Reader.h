@@ -7,6 +7,6 @@
 class FileReader
 {
 public:
-	void ReadMatrix(vector<vector<real>>& Matrix, const string& Path);
-	void ReadVector(vector<real>& Vector, const string& Path);
+	void ReadMatrix(vector<vector<real>>& matrix, const string& path);
+	void ReadVector(vector<real>& Vector, const string& path);
 };

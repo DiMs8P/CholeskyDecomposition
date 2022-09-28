@@ -16,7 +16,6 @@ private:
 	void FillMatrix();
 	void FillDiag();
 
-
 	int _size;
 	vector<vector<real>> _matrix;
 	vector<real> _diag;

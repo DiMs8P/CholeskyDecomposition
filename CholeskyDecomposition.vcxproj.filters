@@ -39,7 +39,7 @@
     <ClInclude Include="Solution\Decompositor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Solution\SolverOfSLAE.h">
+    <ClInclude Include="Solution\SLAESolver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TapeMatrix.h">
@@ -59,7 +59,7 @@
     <ClCompile Include="Input\Writer.cpp">
       <Filter>Source Files\Source\Input</Filter>
     </ClCompile>
-    <ClCompile Include="Solution\SolverOfSLAE.cpp">
+    <ClCompile Include="Solution\SLAESolver.cpp">
       <Filter>Source Files\Source\Solution</Filter>
     </ClCompile>
     <ClCompile Include="Solution\Decompositor.cpp">

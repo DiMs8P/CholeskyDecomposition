@@ -3,7 +3,7 @@ using namespace std;
 
 typedef double real;
 
-typedef real accVarType;
+typedef real sumType;
 
 #define PRECISION 16
 

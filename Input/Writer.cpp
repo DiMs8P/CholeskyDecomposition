@@ -19,18 +19,18 @@ void FileWriter::WriteVector(const vector<real>& vector) const
 
 void FileWriter::WriteMatrix(const vector<vector<real>>& matrix) const
 {
-	ofstream matrixStream(_outputPath);
+	ofstream stream(_outputPath);
 
-	const int matrixSize = matrix.size();
-	const int halfSize = matrix[0].size();
+	const int height = matrix.size();
+	const int width = matrix[0].size();
 
-	matrixStream << matrixSize << " " << halfSize << '\n';
-	for (int i = 0; i < matrixSize; i++) {
-		for (int j = 0; j < halfSize; j++) {
-			matrixStream << fixed << setprecision(PRECISION) << matrix[i][j] << '\t';
+	stream << height << " " << width << '\n';
+	for (int i = 0; i < height; i++) {
+		for (int j = 0; j < width; j++) {
+			stream << fixed << setprecision(PRECISION) << matrix[i][j] << '\t';
 		}
-		matrixStream << '\n';
+		stream << '\n';
 	}
 
-	matrixStream.close();
+	stream.close();
 }

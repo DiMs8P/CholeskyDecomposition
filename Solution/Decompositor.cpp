@@ -1,62 +1,62 @@
 #include "Decompositor.h"
 
-void Decompositor::DecomposeByCholesky(vector<vector<real>>& Matrix, vector<real>& Diag) {
+void Decompositor::DecomposeByCholesky(vector<vector<real>>& matrix, vector<real>& Diag) {
 
-	if (Matrix.empty())
+	if (matrix.empty())
 		return;
 
-	DecomposeTheFirstHalfWidth(Matrix, Diag);
-	FinishDecomposition(Matrix, Diag);
+	DecomposeTheFirstHalfWidth(matrix, Diag);
+	FinishDecomposition(matrix, Diag);
 }
 
-void Decompositor::DecomposeTheFirstHalfWidth(vector<vector<real>>& Matrix, vector<real>& Diag) {
+void Decompositor::DecomposeTheFirstHalfWidth(vector<vector<real>>& matrix, vector<real>& Diag) {
 
-	const int HalfWidth = Matrix[0].size();
-	for (int i = 0; i < HalfWidth; i++)
+	const int tapeHalfWidth = matrix[0].size();
+	for (int i = 0; i < tapeHalfWidth; i++)
 	{
-		for (int jL = HalfWidth - i; jL < HalfWidth; jL++)
+		for (int jL = tapeHalfWidth - i; jL < tapeHalfWidth; jL++)
 		{
-			accVarType Sum = 0;
-			const int j = jL - (HalfWidth - i);
+			sumType sum = 0;
+			const int j = jL - (tapeHalfWidth - i);
 			for (int kj = 0, kjShift = i - j; kj < jL; kj++, kjShift++)
 			{
-				Sum += Matrix[i][kj] * Matrix[j][kjShift];
+				sum += matrix[i][kj] * matrix[j][kjShift];
 			}
-			Matrix[i][jL] = (Matrix[i][jL] - Sum) / Diag[j];
+			matrix[i][jL] = (matrix[i][jL] - sum) / Diag[j];
 		}
 
-		accVarType Sum = 0;
-		for (int jL = 0; jL < HalfWidth; jL++)
+		sumType sum = 0;
+		for (int jL = 0; jL < tapeHalfWidth; jL++)
 		{
-			Sum += Matrix[i][jL] * Matrix[i][jL];
+			sum += matrix[i][jL] * matrix[i][jL];
 		}
-		Diag[i] = sqrt(Diag[i] - Sum);
+		Diag[i] = sqrt(Diag[i] - sum);
 	}
 }
 
-void Decompositor::FinishDecomposition(vector<vector<real>>& Matrix, vector<real>& Diag) {
+void Decompositor::FinishDecomposition(vector<vector<real>>& matrix, vector<real>& Diag) {
 
-	const int HalfWidth = Matrix[0].size();
-	const int MatrixSize = Diag.size();
+	const int tapeHalfWidth = matrix[0].size();
+	const int matrixDimension = Diag.size();
 
-	for (int i = HalfWidth; i < MatrixSize; i++)
+	for (int i = tapeHalfWidth; i < matrixDimension; i++)
 	{
-		for (int jL = 0; jL < HalfWidth; jL++)
+		for (int jL = 0; jL < tapeHalfWidth; jL++)
 		{
-			accVarType Sum = 0;
-			const int j = jL - (HalfWidth - i);
+			sumType sum = 0;
+			const int j = jL - (tapeHalfWidth - i);
 			for (int kj = 0, kjShift = i - j; kj < jL; kj++, kjShift++)
 			{
-				Sum += Matrix[i][kj] * Matrix[j][kjShift];
+				sum += matrix[i][kj] * matrix[j][kjShift];
 			}
-			Matrix[i][jL] = (Matrix[i][jL] - Sum) / Diag[j];
+			matrix[i][jL] = (matrix[i][jL] - sum) / Diag[j];
 		}
 
-		accVarType Sum = 0;
-		for (int jL = 0; jL < HalfWidth; jL++)
+		sumType sum = 0;
+		for (int jL = 0; jL < tapeHalfWidth; jL++)
 		{
-			Sum += Matrix[i][jL] * Matrix[i][jL];
+			sum += matrix[i][jL] * matrix[i][jL];
 		}
-		Diag[i] = sqrt(Diag[i] - Sum);
+		Diag[i] = sqrt(Diag[i] - sum);
 	}
 }

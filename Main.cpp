@@ -3,12 +3,12 @@
 #include <vector>
 #include "Writer.h"
 #include "Config.h"
-#include "SolverOfSLAE.h"
+#include "SLAESolver.h"
 #include "HilbertMatrix.h"
 
 void GaussTest()
 {
-	/*SolverOfSLAE Solver;
+	/*SLAESolver Solver;
 	FileWriter FileWriter;
 
 	vector<vector<real>> matrix
@@ -25,12 +25,12 @@ void GaussTest()
 
 int main() {
 	GaussTest();
-	Decompositor Solution;
-	SolverOfSLAE Solver;
+	Decompositor decompositor;
+	SLAESolver SLAESolver;
 
-	vector<vector<real>> Matrix;
-	vector<real> Vector;
-	vector<real> Diag;
+	vector<vector<real>> matrix;
+	vector<real> vector1;
+	vector<real> diag;
 
 	ALHilbertMatrix hilbertMatrix(
 		HilbertSize,
@@ -47,13 +47,13 @@ int main() {
 	//FileWriter.WriteVector(Vector, "Vector.txt");
 
 	FileReader FilerReader;
-	FilerReader.ReadMatrix(Matrix, "HilbertMatrixOutput.txt");
-	FilerReader.ReadVector(Vector, "Vector.txt");
-	FilerReader.ReadVector(Diag, "HilbertDiagOutput.txt");
+	FilerReader.ReadMatrix(matrix, "HilbertMatrixOutput.txt");
+	FilerReader.ReadVector(vector1, "Vector.txt");
+	FilerReader.ReadVector(diag, "HilbertDiagOutput.txt");
 
-	Solution.DecomposeByCholesky(Matrix, Diag);
-	const vector<real> Vec1 = Solver.SolveWithLALowerTriangle(Matrix, Diag, Vector);
-	vector<real> Vec2 = Solver.SolveWithLAHigherTriangle(Matrix, Diag, Vec1);
+	decompositor.DecomposeByCholesky(matrix, diag);
+	const vector<real> vec1 = SLAESolver.SolveWithLALowerTriangle(matrix, diag, vector1);
+	vector<real> vec2 = SLAESolver.SolveWithLAHigherTriangle(matrix, diag, vec1);
 
 	/*FileWriter.WriteMatrix(Matrix, "MatrixOutput.txt");
 	FileWriter.WriteVector(Diag, "DiagOutput.txt");
