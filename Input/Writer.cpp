@@ -2,31 +2,35 @@
 #include <iomanip>
 #include "Writer.h"
 
+FileWriter::FileWriter(const string& outputPath) :
+	_outputPath(outputPath)
+{ }
 
-void FileWriter::WriteVector(std::vector<real>& Vector, const std::string& Path) {
-	std::ofstream vectorStream(Path);
+void FileWriter::WriteVector(const vector<real>& vector) const
+{
+	ofstream vectorStream(_outputPath);
 
-	vectorStream << Vector.size() << '\n';
-	for (int i = 0; i < Vector.size(); i++) {
-		vectorStream << std::fixed << std::setprecision(PRECISION) << Vector[i] << '\n';
-	}
+	vectorStream << vector.size() << '\n';
+	for (const float x : vector)
+		vectorStream << fixed << setprecision(PRECISION) << x << '\n';
 
 	vectorStream.close();
 }
 
-void FileWriter::WriteMatrix(const std::vector<std::vector<real>>& Matrix, const std::string& Path) {
-	std::ofstream MatrixStream(Path);
+void FileWriter::WriteMatrix(const vector<vector<real>>& matrix) const
+{
+	ofstream matrixStream(_outputPath);
 
-	const int MatrixSize = Matrix.size();
-	const int HalfSize = Matrix[0].size();
+	const int matrixSize = matrix.size();
+	const int halfSize = matrix[0].size();
 
-	MatrixStream << MatrixSize << " " << HalfSize << '\n';
-	for (int i = 0; i < MatrixSize; i++) {
-		for (int j = 0; j < HalfSize; j++) {
-			MatrixStream << std::fixed << std::setprecision(PRECISION) << Matrix[i][j] << '\t';
+	matrixStream << matrixSize << " " << halfSize << '\n';
+	for (int i = 0; i < matrixSize; i++) {
+		for (int j = 0; j < halfSize; j++) {
+			matrixStream << fixed << setprecision(PRECISION) << matrix[i][j] << '\t';
 		}
-		MatrixStream << '\n';
+		matrixStream << '\n';
 	}
 
-	MatrixStream.close();
+	matrixStream.close();
 }
