@@ -151,6 +151,7 @@
   <ItemGroup>
     <Text Include="Diag.txt" />
     <Text Include="DiagOutput.txt" />
+    <Text Include="Gauss.txt" />
     <Text Include="HilbertDiagOutput.txt" />
     <Text Include="HilbertMatrixOutput.txt" />
     <Text Include="Matrix.txt" />

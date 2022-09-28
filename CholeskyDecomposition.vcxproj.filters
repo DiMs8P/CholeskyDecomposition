@@ -87,5 +87,6 @@
     <Text Include="MatrixOutput.txt" />
     <Text Include="HilbertDiagOutput.txt" />
     <Text Include="HilbertMatrixOutput.txt" />
+    <Text Include="Gauss.txt" />
   </ItemGroup>
 </Project>

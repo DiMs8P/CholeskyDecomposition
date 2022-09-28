@@ -6,8 +6,26 @@
 #include "SolverOfSLAE.h"
 #include "HilbertMatrix.h"
 
+void GaussTest()
+{
+	SolverOfSLAE Solver;
+	FileWriter FileWriter;
+
+	std::vector<std::vector<real>> matrix
+	{
+		{1, 1, 3, 4},
+		{2, 3, 4, 5},
+		{3, 4, 1, 1},
+		{-1, -2, -3, -21}
+	};
+	Solver.ToUpperTriangle(matrix);
+
+	FileWriter.WriteMatrix(matrix, "Gauss.txt");
+}
+
 int main() {
-	Decompositor Solution;
+	GaussTest();
+	/*Decompositor Solution;
 	SolverOfSLAE Solver;
 
 	std::vector<std::vector<real>> Matrix;
@@ -35,7 +53,7 @@ int main() {
 
 	FileWriter.WriteMatrix(Matrix, "MatrixOutput.txt");
 	FileWriter.WriteVector(Diag, "DiagOutput.txt");
-	FileWriter.WriteVector(Vec2, "Output.txt");
+	FileWriter.WriteVector(Vec2, "Output.txt");*/
 
 	return 0;
 }

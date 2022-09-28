@@ -65,23 +65,51 @@ std::vector<real> SolverOfSLAE::SolveWithLAHigherTriangle(const std::vector<std:
 	return Output;
 }
 
-//std::vector<real> SolveByGaussMethod(const std::vector<std::vector<real>>& Matrix, const std::vector<real>& Vector)
-//{
-//	if (Matrix.size() != Vector.size() || Vector.empty())
-//		return{};
-//
-//	std::vector<real> Output(Vector.size());
-//
-//	for (int i = 0; i < Matrix.size(); i++)
-//	{
-//
-//		for (int j = i; j < Matrix.size(); j++)
-//		{
-//
-//			for (int k = 0; k < Matrix.size(); k++)
-//			{
-//
-//			}
-//		}
-//	}
-//}
+
+std::vector<real> SolverOfSLAE::SolveByGaussMethod(std::vector<std::vector<real>>& Matrix, const std::vector<real>& Vector)
+{
+	if (Matrix.size() != Vector.size() || Vector.empty())
+		return{};
+
+	ToUpperTriangle(Matrix);
+	return SolveWithUpperTriangle(Matrix, Vector);
+}
+
+void SolverOfSLAE::ToUpperTriangle(std::vector<std::vector<real>>& Matrix)
+{
+	for (int i = 0; i < Matrix.size(); i++)
+	{
+
+		for (int j = i + 1; j < Matrix.size(); j++)
+		{
+			const real coefficient = -Matrix[j][i] / Matrix[i][i];
+
+			AddRowWithCoefficient(Matrix[j], Matrix[i], coefficient);
+		}
+	}
+}
+
+void SolverOfSLAE::AddRowWithCoefficient(std::vector<real>& target, std::vector<real>& additional, const real coefficient)
+{
+	for (int j = 0; j < target.size(); j++)
+	{
+		target[j] += additional[j] * coefficient;
+	}
+}
+
+std::vector<real> SolverOfSLAE::SolveWithUpperTriangle(std::vector<std::vector<real>>& Matrix, const std::vector<real>& Vector)
+{
+	std::vector<real> Output(Vector.size());
+
+	for (int i = Matrix.size() - 1; i >= 0; i--)
+	{
+		accVarType sum = 0;
+		for (int j = i + 1; j < Matrix.size(); ++j)
+		{
+			sum += Matrix[i][j] * Vector[j];
+		}
+
+		Output[i] = (Vector[i] - sum) / Matrix[i][i];
+	}
+	return Output;
+}
