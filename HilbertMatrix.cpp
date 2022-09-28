@@ -44,3 +44,18 @@ void ALHilbertMatrix::Write() const
 	_matrixWriter.WriteMatrix(_matrix);
 	_diagWriter.WriteVector(_diag);
 }
+
+vector<real> ALHilbertMatrix::GetProductByVector(const int hilbertMatrixSize)
+{
+	std::vector<real> Output(hilbertMatrixSize);
+	for (int i = 0; i < hilbertMatrixSize; i++)
+	{
+		accVarType Sum = 0;
+		for (int j = 1; j <= hilbertMatrixSize; j++)
+		{
+			Sum += (accVarType)j / (j + i);
+		}
+		Output[i] = Sum;
+	}
+	return Output;
+}

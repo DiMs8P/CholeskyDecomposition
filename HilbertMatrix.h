@@ -10,6 +10,8 @@ class ALHilbertMatrix
 public:
 	ALHilbertMatrix(const int size, const FileWriter& matrixWriter, const FileWriter& diagWriter);
 	void Write() const;
+	vector<real> GetProductByVector(const int hilbertMatrixSize);
+
 private:
 	void FillMatrix();
 	void FillDiag();

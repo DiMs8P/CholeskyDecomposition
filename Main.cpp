@@ -41,7 +41,7 @@ int main() {
 	hilbertMatrix.Write();
 
 	// добавить в Hilbert matrix умножение на вектор
-	//Vector = HMatrix.GetHilbertMatrixXVectorProduct(HilbertSize);
+	//Vector = HMatrix.GetProductByVector(HilbertSize);
 
 	//FileWriter FileWriter;
 	//FileWriter.WriteVector(Vector, "Vector.txt");
