@@ -2,26 +2,22 @@
 
 #include <vector>
 #include "Config.h"
+#include "Input/Writer.h"
+using namespace std;
 
-class HilbertMatrix
+class ALHilbertMatrix
 {
 public:
-	vector<vector<real>> GenerateALMatrix(const int Size);
-	vector<real> GenerateDiag(const int Size);
+	ALHilbertMatrix(const int size, const FileWriter& matrixWriter, const FileWriter& diagWriter);
+	void Write() const;
+private:
+	void FillMatrix();
+	void FillDiag();
 
-	vector<real> GetHilbertMatrixXVectorProduct(const int HilbertMatrixSize)
-	{
-		vector<real> Output(HilbertMatrixSize);
-		for (int i = 0; i < HilbertMatrixSize; i++)
-		{
-			accVarType Sum = 0;
-			for (int j = 1; j <= HilbertMatrixSize; j++)
-			{
-				Sum += (accVarType)j / (j + i);
-			}
-			Output[i] = Sum;
-		}
-		return Output;
-	}
 
+	int _size;
+	vector<vector<real>> _matrix;
+	vector<real> _diag;
+	const FileWriter& _matrixWriter;
+	const FileWriter& _diagWriter;
 };

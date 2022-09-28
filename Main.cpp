@@ -25,22 +25,26 @@ void GaussTest()
 
 int main() {
 	GaussTest();
-	/*Decompositor Solution;
+	Decompositor Solution;
 	SolverOfSLAE Solver;
 
 	vector<vector<real>> Matrix;
 	vector<real> Vector;
 	vector<real> Diag;
 
-	HilbertMatrix HMatrix;
-	vector<vector<real>> HilbertMatrix = HMatrix.GenerateALMatrix(HilbertSize);
-	vector<real> HilbertVector = HMatrix.GenerateDiag(HilbertSize);
-	Vector = HMatrix.GetHilbertMatrixXVectorProduct(HilbertSize);
+	ALHilbertMatrix hilbertMatrix(
+		HilbertSize,
+		FileWriter("HilbertMatrixOutput.txt"),
+		FileWriter("HilbertDiagOutput.txt")
+	);
 
-	FileWriter FileWriter;
-	FileWriter.WriteMatrix(HilbertMatrix, "HilbertMatrixOutput.txt");
-	FileWriter.WriteVector(HilbertVector, "HilbertDiagOutput.txt");
-	FileWriter.WriteVector(Vector, "Vector.txt");
+	hilbertMatrix.Write();
+
+	// добавить в Hilbert matrix умножение на вектор
+	//Vector = HMatrix.GetHilbertMatrixXVectorProduct(HilbertSize);
+
+	//FileWriter FileWriter;
+	//FileWriter.WriteVector(Vector, "Vector.txt");
 
 	FileReader FilerReader;
 	FilerReader.ReadMatrix(Matrix, "HilbertMatrixOutput.txt");
@@ -51,7 +55,7 @@ int main() {
 	const vector<real> Vec1 = Solver.SolveWithLALowerTriangle(Matrix, Diag, Vector);
 	vector<real> Vec2 = Solver.SolveWithLAHigherTriangle(Matrix, Diag, Vec1);
 
-	FileWriter.WriteMatrix(Matrix, "MatrixOutput.txt");
+	/*FileWriter.WriteMatrix(Matrix, "MatrixOutput.txt");
 	FileWriter.WriteVector(Diag, "DiagOutput.txt");
 	FileWriter.WriteVector(Vec2, "Output.txt");*/
 

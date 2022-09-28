@@ -1,32 +1,46 @@
 #include "HilbertMatrix.h"
 
-vector<vector<real>> HilbertMatrix::GenerateALMatrix(const int Size)
+ALHilbertMatrix::ALHilbertMatrix(
+	const int size,
+	const FileWriter& matrixWriter,
+	const FileWriter& diagWriter
+) :
+	_matrixWriter(matrixWriter),
+	_diagWriter(diagWriter)
 {
-	if (Size <= 0)
-		throw "Attempt to generate invalid matrix";
-
-	vector<vector<real>> Matrix(Size, vector<real>(Size));
-
-	for (int i = 1; i < Size; i++)
-	{
-		for (int j = Size - i; j < Size; j++)
-		{
-			Matrix[i][j] = 1.0f / (2 * i + j - (Size - 1));
-		}
-	}
-	return Matrix;
+	if (size <= 0)
+		throw exception("Attempt to generate invalid matrix");
+	_size = size;
+	_matrix = vector<vector<real>>(0);
+	FillMatrix();
+	FillDiag();
 }
 
-vector<real> HilbertMatrix::GenerateDiag(const int Size)
+void ALHilbertMatrix::FillMatrix()
 {
-	if (Size <= 0)
-		throw "Attempt to generate invalid vector";
+	_matrix = vector<vector<real>>(_size, vector<real>(_size));
 
-	vector<real> Diag(Size);
-
-	for (int i = 0; i < Size; i++)
+	for (int i = 1; i < _size; i++)
 	{
-		Diag[i] = 1.0f / (2 * i + 1);
+		for (int j = _size - i; j < _size; j++)
+		{
+			_matrix[i][j] = 1.0 / (2 * i + j - (_size - 2));
+		}
 	}
-	return Diag;
+}
+
+void ALHilbertMatrix::FillDiag()
+{
+	_diag = vector<real>(_size);
+
+	for (int i = 0; i < _size; i++)
+	{
+		_diag[i] = 1.0 / (2 * i + 1);
+	}
+}
+
+void ALHilbertMatrix::Write() const
+{
+	_matrixWriter.WriteMatrix(_matrix);
+	_diagWriter.WriteVector(_diag);
 }
