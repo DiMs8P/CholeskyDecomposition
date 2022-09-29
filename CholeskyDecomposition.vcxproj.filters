@@ -39,9 +39,6 @@
     <ClInclude Include="Solution\SLAESolver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TapeMatrix.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MatrixFileReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -67,9 +64,6 @@
     </ClCompile>
     <ClCompile Include="Solution\Decompositor.cpp">
       <Filter>Source Files\Source\Solution</Filter>
-    </ClCompile>
-    <ClCompile Include="TapeMatrix.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MatrixFileReader.cpp">
       <Filter>Source Files\Source\Input</Filter>

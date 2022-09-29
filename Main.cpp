@@ -42,10 +42,10 @@ int main() {
 	hilbertMatrix.Write();
 
 	// добавить в Hilbert matrix умножение на вектор
-	auto hilbertProduct = hilbertMatrix.GetProductByZeroToSizeVector(HilbertSize);
+	const auto hilbertProductByDefaultVector = hilbertMatrix.GetProductByZeroToSizeVector(HilbertSize);
 
-	//FileWriter FileWriter;
-	//FileWriter.WriteVector(Vector, "Vector.txt");
+	FileWriter hilbertProduct("hilbertProduct.txt");
+	hilbertProduct.WriteVector(hilbertProductByDefaultVector);
 
 	MatrixFileReader matrixReader("HilbertMatrixOutput.txt");
 	VectorFileReader vectorReader("Vector.txt");
