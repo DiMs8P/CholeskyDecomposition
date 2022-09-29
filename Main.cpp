@@ -56,8 +56,8 @@ int main() {
 	diagReader.Read(diag);
 
 	decompositor.DecomposeByCholesky(matrix, diag);
-	const vector<real> vec1 = SLAESolver.SolveWithLALowerTriangle(matrix, diag, v);
-	vector<real> vec2 = SLAESolver.SolveWithLAHigherTriangle(matrix, diag, vec1);
+	const vector<real> vec1 = SLAESolver.SolveWithTapeMatrixAsLowerTriangle(matrix, diag, v);
+	vector<real> vec2 = SLAESolver.SolveWithTapeMatrixAsHigherTriangle(matrix, diag, vec1);
 
 	/*FileWriter.WriteMatrix(Matrix, "MatrixOutput.txt");
 	FileWriter.WriteVector(Diag, "DiagOutput.txt");

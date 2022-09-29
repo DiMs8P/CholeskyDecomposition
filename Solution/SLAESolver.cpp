@@ -1,6 +1,6 @@
 #include "SLAESolver.h"
 
-vector<real> SLAESolver::SolveWithLALowerTriangle(
+vector<real> SLAESolver::SolveWithTapeMatrixAsLowerTriangle(
 	const vector<vector<real>>& matrix,
 	const vector<real>& diag,
 	const vector<real>& Vector)
@@ -33,7 +33,7 @@ vector<real> SLAESolver::SolveWithLALowerTriangle(
 	return output;
 }
 
-vector<real> SLAESolver::SolveWithLAHigherTriangle(const vector<vector<real>>& matrix,
+vector<real> SLAESolver::SolveWithTapeMatrixAsHigherTriangle(const vector<vector<real>>& matrix,
 	const vector<real>& diag,
 	const vector<real>& Vector)
 {

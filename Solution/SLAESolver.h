@@ -7,11 +7,11 @@ class SLAESolver
 {
 public:
 
-	vector<real> SolveWithLALowerTriangle(const vector<vector<real>>& matrix,
+	vector<real> SolveWithTapeMatrixAsLowerTriangle(const vector<vector<real>>& matrix,
 		const vector<real>& diag,
 		const vector<real>& Vector);
 
-	vector<real> SolveWithLAHigherTriangle(const vector<vector<real>>& matrix,
+	vector<real> SolveWithTapeMatrixAsHigherTriangle(const vector<vector<real>>& matrix,
 		const vector<real>& diag,
 		const vector<real>& Vector);
 
