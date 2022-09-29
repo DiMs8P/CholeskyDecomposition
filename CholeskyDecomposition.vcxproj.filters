@@ -27,7 +27,7 @@
     <ClInclude Include="Config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HilbertMatrix.h">
+    <ClInclude Include="HilbertTapeMatrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Input\Writer.h">
@@ -56,7 +56,7 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HilbertMatrix.cpp">
+    <ClCompile Include="HilbertTapeMatrix.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Input\Writer.cpp">

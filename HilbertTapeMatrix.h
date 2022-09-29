@@ -5,18 +5,18 @@
 #include "Input/Writer.h"
 using namespace std;
 
-class ALHilbertMatrix
+class HilbertTapeMatrix
 {
 public:
-	ALHilbertMatrix(const int size, const FileWriter& matrixWriter, const FileWriter& diagWriter);
+	HilbertTapeMatrix(const int dimension, const FileWriter& matrixWriter, const FileWriter& diagWriter);
 	void Write() const;
-	vector<real> GetProductByVector(const int hilbertMatrixSize);
+	static vector<real> GetProductByZeroToSizeVector(const int hilbertMatrixSize);
 
 private:
 	void FillMatrix();
 	void FillDiag();
 
-	int _size;
+	int _dimension;
 	vector<vector<real>> _matrix;
 	vector<real> _diag;
 	const FileWriter& _matrixWriter;

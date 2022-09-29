@@ -5,7 +5,7 @@
 #include "Writer.h"
 #include "Config.h"
 #include "SLAESolver.h"
-#include "HilbertMatrix.h"
+#include "HilbertTapeMatrix.h"
 
 void GaussTest()
 {
@@ -33,7 +33,7 @@ int main() {
 	vector<real> v;
 	vector<real> diag;
 
-	ALHilbertMatrix hilbertMatrix(
+	HilbertTapeMatrix hilbertMatrix(
 		HilbertSize,
 		FileWriter("HilbertMatrixOutput.txt"),
 		FileWriter("HilbertDiagOutput.txt")
@@ -42,7 +42,7 @@ int main() {
 	hilbertMatrix.Write();
 
 	// добавить в Hilbert matrix умножение на вектор
-	//Vector = HMatrix.GetProductByVector(HilbertSize);
+	auto hilbertProduct = hilbertMatrix.GetProductByZeroToSizeVector(HilbertSize);
 
 	//FileWriter FileWriter;
 	//FileWriter.WriteVector(Vector, "Vector.txt");

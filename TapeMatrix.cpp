@@ -1,6 +1,8 @@
 #include "Reader.h"
 #include "TapeMatrix.h"
 
+#include <string>
+
 TapeMatrix::TapeMatrix(const string inputMatrix, const string inputDiag)
 {
 	Reader reader;
