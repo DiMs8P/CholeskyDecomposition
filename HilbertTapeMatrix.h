@@ -10,7 +10,7 @@ class HilbertTapeMatrix
 public:
 	HilbertTapeMatrix(const int dimension, const FileWriter& matrixWriter, const FileWriter& diagWriter);
 	void Write() const;
-	static vector<real> GetProductByZeroToSizeVector(const int hilbertMatrixSize);
+	static vector<real> GetProductByZeroToSizeVector(const int size);
 
 private:
 	void FillMatrix();

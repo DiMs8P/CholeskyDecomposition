@@ -40,14 +40,14 @@ void HilbertTapeMatrix::Write() const
 	_diagWriter.WriteVector(_diag);
 }
 
-vector<real> HilbertTapeMatrix::GetProductByZeroToSizeVector(const int hilbertMatrixSize)
+vector<real> HilbertTapeMatrix::GetProductByZeroToSizeVector(const int size)
 {
-	vector<real> output(hilbertMatrixSize);
+	vector<real> output(size);
 
-	for (int i = 0; i < hilbertMatrixSize; i++)
+	for (int i = 0; i < size; i++)
 	{
 		sumType sum = 0;
-		for (int j = 1; j <= hilbertMatrixSize; j++)
+		for (int j = 1; j <= size; j++)
 		{
 			sum += static_cast<sumType>(j) / (j + i);
 		}

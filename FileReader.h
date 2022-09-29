@@ -12,6 +12,6 @@ protected:
 private:
 	static void ThrowIfNotOpen(const ifstream& stream);
 
-	const string& _path;
+	string _path;
 };
 

@@ -1,8 +1,9 @@
 #include "FileReader.h"
 
-FileReader::FileReader(const string& path):
-	_path(path)
-	{ }
+FileReader::FileReader(const string& path)
+{
+	_path = path;
+}
 
 ifstream FileReader::getStream() const
 {

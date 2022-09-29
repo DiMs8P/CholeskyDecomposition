@@ -7,7 +7,7 @@ class VectorFileReader : public FileReader
 {
 public:
 	VectorFileReader(const string& path);
-	void Read(vector<real> vec);
+	void Read(vector<real>& vec);
 
 private:
 	int _height;

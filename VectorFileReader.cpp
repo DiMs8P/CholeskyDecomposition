@@ -4,7 +4,7 @@ VectorFileReader::VectorFileReader(const string& path)
 	: FileReader(path)
 	{ }
 
-void VectorFileReader::Read(vector<real> vec)
+void VectorFileReader::Read(vector<real>& vec)
 {
 	ifstream stream = getStream();
 
