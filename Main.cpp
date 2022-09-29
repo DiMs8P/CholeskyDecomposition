@@ -1,4 +1,5 @@
-#include "Reader.h"
+#include "VectorFileReader.h"
+#include "MatrixFileReader.h"
 #include "Solution/Decompositor.h"
 #include <vector>
 #include "Writer.h"
@@ -29,7 +30,7 @@ int main() {
 	SLAESolver SLAESolver;
 
 	vector<vector<real>> matrix;
-	vector<real> vector1;
+	vector<real> v;
 	vector<real> diag;
 
 	ALHilbertMatrix hilbertMatrix(
@@ -46,13 +47,16 @@ int main() {
 	//FileWriter FileWriter;
 	//FileWriter.WriteVector(Vector, "Vector.txt");
 
-	FileReader FilerReader;
-	FilerReader.ReadMatrix(matrix, "HilbertMatrixOutput.txt");
-	FilerReader.ReadVector(vector1, "Vector.txt");
-	FilerReader.ReadVector(diag, "HilbertDiagOutput.txt");
+	MatrixFileReader matrixReader("HilbertMatrixOutput.txt");
+	VectorFileReader vectorReader("Vector.txt");
+	VectorFileReader diagReader("HilbertDiagOutput.txt");
+
+	matrixReader.Read(matrix);
+	vectorReader.Read(v);
+	diagReader.Read(diag);
 
 	decompositor.DecomposeByCholesky(matrix, diag);
-	const vector<real> vec1 = SLAESolver.SolveWithLALowerTriangle(matrix, diag, vector1);
+	const vector<real> vec1 = SLAESolver.SolveWithLALowerTriangle(matrix, diag, v);
 	vector<real> vec2 = SLAESolver.SolveWithLAHigherTriangle(matrix, diag, vec1);
 
 	/*FileWriter.WriteMatrix(Matrix, "MatrixOutput.txt");

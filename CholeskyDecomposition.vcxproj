@@ -129,21 +129,25 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Config.h" />
+    <ClInclude Include="FileReader.h" />
     <ClInclude Include="HilbertMatrix.h" />
-    <ClInclude Include="Input\Reader.h" />
     <ClInclude Include="Input\Writer.h" />
+    <ClInclude Include="MatrixFileReader.h" />
     <ClInclude Include="TapeMatrix.h" />
     <ClInclude Include="Solution\Decompositor.h" />
     <ClInclude Include="Solution\SLAESolver.h" />
+    <ClInclude Include="VectorFileReader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="HilbertMatrix.cpp" />
-    <ClCompile Include="Input\Reader.cpp" />
     <ClCompile Include="Input\Writer.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MatrixFileReader.cpp" />
     <ClCompile Include="TapeMatrix.cpp" />
     <ClCompile Include="Solution\Decompositor.cpp" />
     <ClCompile Include="Solution\SLAESolver.cpp" />
+    <ClCompile Include="VectorFileReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\Project4\.clang-format" />
