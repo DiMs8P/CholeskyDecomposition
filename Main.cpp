@@ -9,8 +9,8 @@
 
 void GaussTest()
 {
-	/*SLAESolver Solver;
-	FileWriter FileWriter;
+	SLAESolver Solver;
+	FileWriter vectorWriter("Gauss.txt");
 
 	vector<vector<real>> matrix
 	{
@@ -19,20 +19,12 @@ void GaussTest()
 		{3, 4, 1, 1},
 		{-1, -2, -3, -21}
 	};
-	Solver.ToUpperTriangle(matrix);
-
-	FileWriter.WriteMatrix(matrix, "Gauss.txt");*/
+	auto answer = Solver.SolveByGaussMethod(matrix, vector<real> {1, 2, 3, 4});
+	vectorWriter.WriteVector(answer);
 }
 
-int main() {
-	GaussTest();
-	Decompositor decompositor;
-	SLAESolver SLAESolver;
-
-	vector<vector<real>> matrix;
-	vector<real> v;
-	vector<real> diag;
-
+void HilbertExample()
+{
 	HilbertTapeMatrix hilbertMatrix(
 		HilbertSize,
 		FileWriter("HilbertMatrixOutput.txt"),
@@ -41,15 +33,23 @@ int main() {
 
 	hilbertMatrix.Write();
 
-	// добавить в Hilbert matrix умножение на вектор
 	const auto hilbertProductByDefaultVector = hilbertMatrix.GetProductByZeroToSizeVector(HilbertSize);
 
 	FileWriter hilbertProduct("hilbertProduct.txt");
 	hilbertProduct.WriteVector(hilbertProductByDefaultVector);
+}
 
+int main() {
+	GaussTest();
+	Decompositor decompositor;
+	SLAESolver SLAESolver;
 	MatrixFileReader matrixReader("HilbertMatrixOutput.txt");
 	VectorFileReader vectorReader("Vector.txt");
 	VectorFileReader diagReader("HilbertDiagOutput.txt");
+
+	vector<vector<real>> matrix;
+	vector<real> v;
+	vector<real> diag;
 
 	matrixReader.Read(matrix);
 	vectorReader.Read(v);

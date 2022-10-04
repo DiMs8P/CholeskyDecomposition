@@ -23,7 +23,7 @@ void HilbertTapeMatrix::FillMatrix()
 
 	for (int i = 1; i < _dimension; i++)
 		for (int j = _dimension - i; j < _dimension; j++)
-			_matrix[i][j] = 1.0 / (2 * i + j - (_dimension - 2));
+			_matrix[i][j] = 1.0 / (2 * (sumType)i + j - (_dimension - 2));
 }
 
 void HilbertTapeMatrix::FillDiag()
@@ -31,7 +31,7 @@ void HilbertTapeMatrix::FillDiag()
 	_diag = vector<real>(_dimension);
 
 	for (int i = 0; i < _dimension; i++)
-		_diag[i] = 1.0 / (2 * i + 1);
+		_diag[i] = 1.0 / (2 * (sumType)i + 1);
 }
 
 void HilbertTapeMatrix::Write() const
@@ -49,7 +49,7 @@ vector<real> HilbertTapeMatrix::GetProductByZeroToSizeVector(const int size)
 		sumType sum = 0;
 		for (int j = 1; j <= size; j++)
 		{
-			sum += static_cast<sumType>(j) / (j + i);
+			sum += (sumType)j / ((sumType)j + i);
 		}
 		output[i] = sum;
 	}
