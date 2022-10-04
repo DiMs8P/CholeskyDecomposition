@@ -27,22 +27,25 @@
     <ClInclude Include="Config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HilbertMatrix.h">
+    <ClInclude Include="HilbertTapeMatrix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Input\Writer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Input\Reader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Solution\Decompositor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Solution\SolverOfSLAE.h">
+    <ClInclude Include="Solution\SLAESolver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TapeMatrix.h">
+    <ClInclude Include="MatrixFileReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VectorFileReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -50,23 +53,26 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="HilbertMatrix.cpp">
+    <ClCompile Include="HilbertTapeMatrix.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Input\Reader.cpp">
-      <Filter>Source Files\Source\Input</Filter>
     </ClCompile>
     <ClCompile Include="Input\Writer.cpp">
       <Filter>Source Files\Source\Input</Filter>
     </ClCompile>
-    <ClCompile Include="Solution\SolverOfSLAE.cpp">
+    <ClCompile Include="Solution\SLAESolver.cpp">
       <Filter>Source Files\Source\Solution</Filter>
     </ClCompile>
     <ClCompile Include="Solution\Decompositor.cpp">
       <Filter>Source Files\Source\Solution</Filter>
     </ClCompile>
-    <ClCompile Include="TapeMatrix.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="MatrixFileReader.cpp">
+      <Filter>Source Files\Source\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="FileReader.cpp">
+      <Filter>Source Files\Source\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="VectorFileReader.cpp">
+      <Filter>Source Files\Source\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

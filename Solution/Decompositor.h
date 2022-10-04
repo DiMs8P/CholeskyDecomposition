@@ -6,10 +6,11 @@
 class Decompositor
 {
 public:
-	void DecomposeByCholesky(std::vector<std::vector<real>>& Matrix, std::vector<real>& Vector);
+	// !TODO почему в декомпозитор нужен вектор
+	void DecomposeByCholesky(vector<vector<real>>& matrix, vector<real>& Vector);
 
 private:
-	void DecomposeTheFirstHalfWidth(std::vector<std::vector<real>>& Matrix, std::vector<real>& Vector);
-	void FinishDecomposition(std::vector<std::vector<real>>& Matrix, std::vector<real>& Vector);
+	void DecomposeTheFirstHalfWidth(vector<vector<real>>& matrix, vector<real>& Vector);
+	void FinishDecomposition(vector<vector<real>>& matrix, vector<real>& Vector);
 };
 

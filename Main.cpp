@@ -1,57 +1,65 @@
-#include "Reader.h"
+#include "VectorFileReader.h"
+#include "MatrixFileReader.h"
 #include "Solution/Decompositor.h"
 #include <vector>
 #include "Writer.h"
 #include "Config.h"
-#include "SolverOfSLAE.h"
-#include "HilbertMatrix.h"
+#include "SLAESolver.h"
+#include "HilbertTapeMatrix.h"
 
 void GaussTest()
 {
-	SolverOfSLAE Solver;
-	FileWriter FileWriter;
+	SLAESolver Solver;
+	FileWriter vectorWriter("Gauss.txt");
 
-	std::vector<std::vector<real>> matrix
+	vector<vector<real>> matrix
 	{
 		{1, 1, 3, 4},
 		{2, 3, 4, 5},
 		{3, 4, 1, 1},
 		{-1, -2, -3, -21}
 	};
-	Solver.ToUpperTriangle(matrix);
+	auto answer = Solver.SolveByGaussMethod(matrix, vector<real> {1, 2, 3, 4});
+	vectorWriter.WriteVector(answer);
+}
 
-	FileWriter.WriteMatrix(matrix, "Gauss.txt");
+void HilbertExample()
+{
+	HilbertTapeMatrix hilbertMatrix(
+		HilbertSize,
+		FileWriter("HilbertMatrixOutput.txt"),
+		FileWriter("HilbertDiagOutput.txt")
+	);
+
+	hilbertMatrix.Write();
+
+	const auto hilbertProductByDefaultVector = hilbertMatrix.GetProductByZeroToSizeVector(HilbertSize);
+
+	FileWriter hilbertProduct("hilbertProduct.txt");
+	hilbertProduct.WriteVector(hilbertProductByDefaultVector);
 }
 
 int main() {
 	GaussTest();
-	/*Decompositor Solution;
-	SolverOfSLAE Solver;
+	Decompositor decompositor;
+	SLAESolver SLAESolver;
+	MatrixFileReader matrixReader("HilbertMatrixOutput.txt");
+	VectorFileReader vectorReader("Vector.txt");
+	VectorFileReader diagReader("HilbertDiagOutput.txt");
 
-	std::vector<std::vector<real>> Matrix;
-	std::vector<real> Vector;
-	std::vector<real> Diag;
+	vector<vector<real>> matrix;
+	vector<real> v;
+	vector<real> diag;
 
-	HilbertMatrix HMatrix;
-	std::vector<std::vector<real>> HilbertMatrix = HMatrix.GenerateALMatrix(HilbertSize);
-	std::vector<real> HilbertVector = HMatrix.GenerateDiag(HilbertSize);
-	Vector = HMatrix.GetHilbertMatrixXVectorProduct(HilbertSize);
+	matrixReader.Read(matrix);
+	vectorReader.Read(v);
+	diagReader.Read(diag);
 
-	FileWriter FileWriter;
-	FileWriter.WriteMatrix(HilbertMatrix, "HilbertMatrixOutput.txt");
-	FileWriter.WriteVector(HilbertVector, "HilbertDiagOutput.txt");
-	FileWriter.WriteVector(Vector, "Vector.txt");
+	decompositor.DecomposeByCholesky(matrix, diag);
+	const vector<real> vec1 = SLAESolver.SolveWithTapeMatrixAsLowerTriangle(matrix, diag, v);
+	vector<real> vec2 = SLAESolver.SolveWithTapeMatrixAsHigherTriangle(matrix, diag, vec1);
 
-	FileReader FilerReader;
-	FilerReader.ReadMatrix(Matrix, "HilbertMatrixOutput.txt");
-	FilerReader.ReadVector(Vector, "Vector.txt");
-	FilerReader.ReadVector(Diag, "HilbertDiagOutput.txt");
-
-	Solution.DecomposeByCholesky(Matrix, Diag);
-	const std::vector<real> Vec1 = Solver.SolveWithLALowerTriangle(Matrix, Diag, Vector);
-	std::vector<real> Vec2 = Solver.SolveWithLAHigherTriangle(Matrix, Diag, Vec1);
-
-	FileWriter.WriteMatrix(Matrix, "MatrixOutput.txt");
+	/*FileWriter.WriteMatrix(Matrix, "MatrixOutput.txt");
 	FileWriter.WriteVector(Diag, "DiagOutput.txt");
 	FileWriter.WriteVector(Vec2, "Output.txt");*/
 
